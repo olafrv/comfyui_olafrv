@@ -1,0 +1,95 @@
+[build-system]
+requires = ["setuptools>=70.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "comfyui_olafrv"
+version = "0.0.1"
+description = "Olaf's Nodes"
+authors = [
+  {name = "Olaf Reitmaier Veracierta", email = "olafrv@gmail.com"}
+]
+readme = "README.md"
+license = {text = "MIT license"}
+requires-python = ">=3.12"
+classifiers = []
+dependencies = [
+    "torch",
+    "sentence-transformers",
+    # https://ai.google.dev/gemma/docs/embeddinggemma/inference-embeddinggemma-with-sentence-transformers
+    "transformers @ git+https://github.com/huggingface/transformers@v4.56.0-Embedding-Gemma-preview"
+]
+
+
+[project.optional-dependencies]
+dev = [
+    "bump-my-version",
+    "coverage",  # testing
+    "mypy",  # linting
+    "pre-commit", # runs linting on commit
+    "pytest",  # testing
+    "ruff",  # linting
+    "catimage" # for viewing image outputs in tests
+]
+
+[project.urls]
+Repository = "https://github.com/olafrv/comfyui_olafrv"
+BugTracker = "https://github.com/olafrv/comfyui_olafrv/issues"
+Documentation = "https://github.com/olafrv/comfyui_olafrv/blob/main/README.md"
+
+
+[tool.comfy]
+PublisherId = "olafrv"
+DisplayName = "Olaf's Nodes"
+Icon = ""
+Tags = ["nlp", "embedding", "transformers", "torch"]
+Repository = "https://github.com/olafrv/comfyui_olafrv"
+
+includes = []
+
+[tool.setuptools.package-data]
+"*" = ["*.*"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+pythonpath = [
+  ".", "src",
+]
+testpaths = [
+    "tests",
+]
+python_files = ["test_*.py"]
+norecursedirs = [".."]
+
+
+[tool.mypy]
+files = "."
+
+# Use strict defaults
+strict = true
+warn_unreachable = true
+warn_no_return = true
+
+[[tool.mypy.overrides]]
+# Don't require test functions to include types
+module = "tests.*"
+disallow_untyped_defs = false
+disable_error_code = "attr-defined"
+
+[tool.ruff]
+# extend-exclude = ["static", "ci/templates"]
+line-length = 140
+src = ["src", "tests"]
+target-version = "py39"
+
+# Add rules to ban exec/eval
+[tool.ruff.lint]
+select = [
+    "S102",  # exec-builtin
+    "S307",  # eval-used
+    "W293",
+    "F",     # See all rules here: https://docs.astral.sh/ruff/rules/#pyflakes-f
+]
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "double"

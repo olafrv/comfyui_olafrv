@@ -1,0 +1,74 @@
+{
+  "28": {
+    "inputs": {
+      "text": "woman in a lagoon",
+      "model_path": "D:\\ComfyUI\\models\\text_encoders\\google\\embeddinggemma-300M"
+    },
+    "class_type": "ORvTextEncoderGoogleEmbeddingGemma3",
+    "_meta": {
+      "title": "ORv Text Encoder Google Embedding Gemma 3"
+    }
+  },
+  "35": {
+    "inputs": {
+      "embedding": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "ORvEmbeddingsHeatmap",
+    "_meta": {
+      "title": "ORv Embeddings Heatmap"
+    }
+  },
+  "36": {
+    "inputs": {
+      "embedding": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "ORvEmbeddingsSpectrogram",
+    "_meta": {
+      "title": "ORv Embeddings Spectrogram"
+    }
+  },
+  "51": {
+    "inputs": {
+      "text": [
+        "28",
+        1
+      ]
+    },
+    "class_type": "ORvStringConsoleDebug",
+    "_meta": {
+      "title": "ORvStringConsoleDebug"
+    }
+  },
+  "52": {
+    "inputs": {
+      "filename_prefix": "orv/orv",
+      "images": [
+        "35",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "53": {
+    "inputs": {
+      "filename_prefix": "orv/orv",
+      "images": [
+        "36",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}
