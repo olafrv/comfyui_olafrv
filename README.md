@@ -11,9 +11,9 @@
 
 ### Example Workflow
 
-Download [ORv_Google_Embedding_Gemma3.json](.\src\comfyui_olafrv\assets\ORv_Google_Embedding_Gemma3.json) or the image below, and drag it into ComfyUI workflow canvas.
+Download [ORv_Google_Embedding_Gemma3.json](src/comfyui_olafrv/assets/ORv_Google_Embedding_Gemma3.json) or the image below, and drag it into ComfyUI workflow canvas.
 
-![ORv_Google_Embedding_Gemma3.png](.\src\comfyui_olafrv\assets\ORv_Google_Embedding_Gemma3.png)
+![ORv_Google_Embedding_Gemma3.png](src/comfyui_olafrv/assets/ORv_Google_Embedding_Gemma3.png)
 
 ## Setup
 
