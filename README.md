@@ -8,6 +8,8 @@
 * **ORvEmbeddingsHeatmap**: Converts an embedding tensor into a heatmap image for visualization.
 * **ORvEmbeddingsSpectrogram**: Converts an embedding tensor into a spectrogram-like image for visualization.
 * **ORvStringConsoleDebug**: Prints a text string to the ComfyUI console.
+* **ORVImageSizeBestFitResolution**: Resizes an image to fit the next available SDXL resolution while maintaining aspect ratio.
+* **ORvTextStripUntilThink**: Strips text until it contains '</think>' (used to remove dangling "think" section from AI responses).
 
 ### Example Workflow
 
