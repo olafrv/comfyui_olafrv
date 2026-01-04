@@ -1,6 +1,7 @@
 import torch
 import pathlib
 import folder_paths
+import platform
 from .utils.GoogleEmbeddingsGemma3 import GoogleEmbeddingsGemma3
 
 CATEGORY = "olafrv/text_encoders"
@@ -146,5 +147,43 @@ class ORvTextStripUntilThink:
             stripped_text = text[index + len(tag) :].lstrip()
         else:
             stripped_text = text
+
+        return (stripped_text,)
+
+
+class ORvTextStripNonLatin:
+    """Strip all non-Latin characters from the input text"""
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {"required": {"text": ("STRING", {"multiline": True, "dynamicPrompts": False, "tooltip": "Text to be processed"})}}
+
+    RETURN_TYPES = ("STRING",)
+    OUTPUT_IS_LIST = (False,)
+    OUTPUT_TOOLTIPS = ("Text with non-Latin characters removed.",)
+    FUNCTION = "strip_non_latin"
+    CATEGORY = CATEGORY
+    DESCRIPTION = "Strip all non-Latin characters from the input text (including Chinese, Japanese, Korean, Arabic, etc.)"
+
+    def strip_non_latin(self, text: str) -> tuple[str,]:
+        """
+        Strip all non-Latin characters that cannot be encoded in cp1252/latin-1
+        """
+
+        # Only apply cp1252 encoding on Windows
+        if platform.system() == "Windows":
+            stripped_text = text.encode("cp1252", "ignore").decode("cp1252")
+        else:
+            # On non-Windows systems, use latin-1 (ISO-8859-1) which is similar to cp1252
+            stripped_text = text.encode("latin-1", "ignore").decode("latin-1")
+
+        # Replace multiple spaces with a single space
+        stripped_text = " ".join(stripped_text.split())
+
+        # Clean up comma artifacts like ", ,"
+        stripped_text = stripped_text.replace(", ,", ",").strip()
+
+        # Log to the comfyUI console
+        print(f"{self.__class__.__name__} - Stripped Text:\n{stripped_text}")
 
         return (stripped_text,)
