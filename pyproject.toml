@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "comfyui_olafrv"
-version = "0.0.2"
+version = "0.0.3"
 description = "Olaf's Nodes"
 authors = [
   {name = "Olaf Reitmaier Veracierta", email = "olafrv@gmail.com"}
@@ -39,7 +39,7 @@ Documentation = "https://github.com/olafrv/comfyui_olafrv/blob/main/README.md"
 
 
 [tool.bumpversion]
-current_version = "0.0.2"
+current_version = "0.0.3"
 parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
 serialize = ["{major}.{minor}.{patch}"]
 search = "{current_version}"
