@@ -1,4 +1,4 @@
-from .nodes_text_encoders import ORvTextEncoderGoogleEmbeddingGemma3, ORvStringConsoleDebug, ORvTextStripUntilThink, ORvTextStripNonLatin
+from .nodes_text_encoders import ORvTextEncoderGoogleEmbeddingGemma3, ORvStringConsoleDebug, ORvTextStripNonLatin
 from .nodes_image_analysis import ORvEmbeddingsHeatmap, ORvEmbeddingsSpectrogram, ORVImageSizeBestFitResolution
 
 # A dictionary that contains all nodes you want to
@@ -6,7 +6,6 @@ from .nodes_image_analysis import ORvEmbeddingsHeatmap, ORvEmbeddingsSpectrogram
 NODE_CLASS_MAPPINGS = {
     "ORvTextEncoderGoogleEmbeddingGemma3": ORvTextEncoderGoogleEmbeddingGemma3,  # noqa: F403, F405
     "ORvStringConsoleDebug": ORvStringConsoleDebug,  # noqa: F403, F405
-    "ORvTextStripUntilThink": ORvTextStripUntilThink,  # noqa: F403, F405
     "ORvTextStripNonLatin": ORvTextStripNonLatin,  # noqa: F403, F405
     "ORvEmbeddingsHeatmap": ORvEmbeddingsHeatmap,  # noqa: F403, F405
     "ORvEmbeddingsSpectrogram": ORvEmbeddingsSpectrogram,  # noqa: F403, F405
@@ -17,7 +16,6 @@ NODE_CLASS_MAPPINGS = {
 NODE_DISPLAY_NAME_MAPPINGS = {
     "ORvTextEncoderGoogleEmbeddingGemma3": "ORv Text Encoder Google Embedding Gemma 3",
     "ORvStringConsoleDebug": "ORv String Console Debug",
-    "ORvTextStripUntilThink": "ORv Text Strip Until 'think'",
     "ORvTextStripNonLatin": "ORv Text Strip Non-Latin Chars",
     "ORvEmbeddingsHeatmap": "ORv Embeddings Heatmap",
     "ORvEmbeddingsSpectrogram": "ORv Embeddings Spectrogram",

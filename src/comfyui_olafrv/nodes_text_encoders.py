@@ -121,36 +121,6 @@ class ORvStringConsoleDebug:
         return (text,)
 
 
-# Node that receive a text and strip everything from
-# the first character until the ocurrence of </think>
-class ORvTextStripUntilThink:
-    """Strip everything from the first character until the ocurrence of </think>"""
-
-    @classmethod
-    def INPUT_TYPES(cls):
-        return {"required": {"text": ("STRING", {"multiline": True, "dynamicPrompts": False, "tooltip": "Text to be processed"})}}
-
-    RETURN_TYPES = ("STRING",)
-    OUTPUT_IS_LIST = (False,)
-    OUTPUT_TOOLTIPS = ("Processed text string.",)
-    FUNCTION = "strip_until_think"
-    CATEGORY = CATEGORY
-    DESCRIPTION = "Strip everything from the first character until the ocurrence of </think>"
-
-    def strip_until_think(self, text: str) -> tuple[str,]:
-        """
-        Strip everything from the first character until the ocurrence of </think>
-        """
-        tag = "</think>"
-        index = text.find(tag)
-        if index != -1:
-            stripped_text = text[index + len(tag) :].lstrip()
-        else:
-            stripped_text = text
-
-        return (stripped_text,)
-
-
 class ORvTextStripNonLatin:
     """Strip all non-Latin characters from the input text"""
 

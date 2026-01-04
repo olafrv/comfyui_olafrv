@@ -2,14 +2,17 @@
 
 ## Workflow
 
-### Nodes
+### Image Processing Nodes
 
-* **ORvTextEncoderGoogleEmbeddingGemma3**: Encodes text into an embedding tensor using [Google's Embedding Gemma 3 model](https://huggingface.co/google/embeddinggemma-300m).
 * **ORvEmbeddingsHeatmap**: Converts an embedding tensor into a heatmap image for visualization.
 * **ORvEmbeddingsSpectrogram**: Converts an embedding tensor into a spectrogram-like image for visualization.
-* **ORvStringConsoleDebug**: Prints a text string to the ComfyUI console.
 * **ORVImageSizeBestFitResolution**: Resizes an image to fit the next available SDXL resolution while maintaining aspect ratio.
-* **ORvTextStripUntilThink**: Strips text until it contains '</think>' (used to remove dangling "think" section from AI responses).
+
+### Text Processing Nodes
+
+* **ORvTextEncoderGoogleEmbeddingGemma3**: Encodes text into an embedding tensor using [Google's Embedding Gemma 3 model](https://huggingface.co/google/embeddinggemma-300m).
+* **ORvStringConsoleDebug**: Prints a text string to the ComfyUI console.
+* **ORvTextStripNonLatin**: Strips all non-Latin characters (Chinese, Japanese, Korean, Arabic, etc.) from text, useful for preventing file I/O encoding errors.
 
 ### Example Workflow
 
