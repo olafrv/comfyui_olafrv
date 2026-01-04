@@ -147,13 +147,15 @@ class ORvTextStripNonLatin:
             # On non-Windows systems, use latin-1 (ISO-8859-1) which is similar to cp1252
             stripped_text = text.encode("latin-1", "ignore").decode("latin-1")
 
+        # Log if characters were removed
+        if len(text) != len(stripped_text):
+            removed_count = len(text) - len(stripped_text)
+            print(f"WARN: Removed {removed_count} non-Latin chars, resulted in text: '{stripped_text}'")
+
         # Replace multiple spaces with a single space
         stripped_text = " ".join(stripped_text.split())
 
         # Clean up comma artifacts like ", ,"
         stripped_text = stripped_text.replace(", ,", ",").strip()
-
-        # Log to the comfyUI console
-        print(f"{self.__class__.__name__} - Stripped Text:\n{stripped_text}")
 
         return (stripped_text,)
