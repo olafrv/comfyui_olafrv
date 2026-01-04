@@ -20,5 +20,5 @@ __all__ = [
 
 __author__ = """Olaf Reitmaier Veracierta"""
 __email__ = "olafrv@gmail.com"
-__version__ = "0.0.4"
+__version__ = "0.0.5"
 __license__ = "MIT"
